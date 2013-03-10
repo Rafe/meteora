@@ -51,7 +51,7 @@ module.exports = class Post
     @title = @config.title
 
   render: ->
-    @content = parse @source
+    @content = parse @source.replace('<!--more-->','')
     @content
 
   excerpt: ->

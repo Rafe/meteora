@@ -1,6 +1,9 @@
 {
-  "name": "meteora",
+  "name": "app",
   "dependencies": {
-    "bootstrap": "~2.3.1"
-  }
+    "btknorr/bootstrap": "*"
+  },
+  "scripts": [ "assets/js/app.js" ],
+  "styles": [ "assets/css/app.css" ],
+  "main": "assets/js/app.js"
 }

@@ -48,4 +48,3 @@ describe 'Post', ->
     Post.read '2012-09-05-test.md', (err, post)->
       post.excerpt().should.not.include 'Test4567'
       done()
-    

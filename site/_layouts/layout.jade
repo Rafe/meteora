@@ -2,11 +2,9 @@ html
   head
     title
       = site.title
-    link(href='/components/bootstrap/docs/assets/css/bootstrap.css', rel= 'stylesheet')
-    script(src='/components/bootstrap/docs/assets/js/bootstrap.min.js')
+    link(href='/build/build.css', rel= 'stylesheet')
+    script(src='/build/build.js')
   body
-    .hero-unit
-      h1
-        = site.title
+    include partials/header
     .container
       block content

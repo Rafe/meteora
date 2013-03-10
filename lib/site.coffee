@@ -1,9 +1,15 @@
 fs = require('fs')
 _ = require('underscore')
+{spawn, exec} = require 'child_process'
 mkpath = require('mkpath')
 async = require('async')
 bower = require('bower')
 path = require('path')
+
+bind = (proc)->
+  proc.stdout.on 'data', (data) -> print data
+  proc.stderr.on 'data', (data) -> print data
+  proc.on 'exit', (status) -> callback?() if status is 0
 
 Post = require('./post')
 Layout = require('./layout')
@@ -47,8 +53,9 @@ module.exports = class Site
     fs.writeFile @path + '/index.html', page, 'utf8', callback
 
   loadComponents: (callback)->
-    bower.config.json = '/' + path.relative(process.cwd(), @path) + '/component.json'
-    bower.config.directory = path.relative(process.cwd(), @path) + '/components'
-    bower.commands.install()
-      .on('data', console.log)
-      .on('end', callback)
+    originPath = process.cwd()
+    process.chdir(@path)
+    exec 'component install', (err, stdout)->
+      exec 'component build', (err, stdout)->
+        process.chdir(originPath)
+        callback()
