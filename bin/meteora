@@ -15,10 +15,12 @@ defaultOpts =
 opts =
   path: [String]
   version: Boolean
+  title: [String]
 
 digestOpts =
   'p': ['--path']
   'v': ['--version']
+  't': ['--title']
 
 options = _.extend(defaultOpts, nopt(opts, digestOpts))
 
@@ -26,5 +28,7 @@ if(process.argv[2] == 'server' or process.argv[2] == 's')
   meteora.commands['server'](options)
 else if(process.argv[2] == 'generate' or process.argv[2] == 'g')
   meteora.commands['generate'](options)
+else if(process.argv[2] == 'post' or process.argv[2] == 'p')
+  meteora.commands['post'](options)
 else
   meteora.commands['help']()

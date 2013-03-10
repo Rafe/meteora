@@ -1,33 +1,45 @@
 #Meteora
 
-1. bootstrap lib
-2. post logic:
+### Static blog generate engine with components
 
-1.index page
-2.show page
+## Target
 
-theme is installed by bower
+## Features
 
-config is saved as a json file
++ components compatable
++ jade template
++ markdown support
 
-generate static site by config
+## Todos
 
-deploy to s3 cdn or github page
++ components themes
++ components plugins
++ pages
++ categories
++ tags
++ pagination
 
-use case:
+##Commands
 
-meteora init -> generate project skeleton
-meteora post
-meteora page
-meteora generate
-meteora watch
-meteora deploy
+Generate content
 
-posts/
-  2012-12-31-test-post.md
-pages/
-  /game/testpage.html
-theme/
-config.coffee
+    meteora generate --path site
+    meteora g -p site
 
-bin:
+Start local server
+
+    meteora server
+    meteora s
+
+Generate new post
+
+    meteora post -t '[new title]'
+    meteora p
+
+##Example structure
+
+    _posts/
+      2012-12-31-test-post.md
+    _layouts/
+      index.jade
+    config.coffee

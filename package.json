@@ -25,7 +25,8 @@
     "mkpath": "~0.1.0",
     "express": "~3.1.0",
     "nopt": "~2.1.1",
-    "component": "~0.13.0"
+    "component": "~0.13.0",
+    "slugs": "~0.1.2"
   },
   "devDependencies": {
     "mocha": "~1.8.1",
