@@ -1,0 +1,6 @@
+extends default
+
+block content
+  for post in posts
+    .well
+      != post.excerpt()

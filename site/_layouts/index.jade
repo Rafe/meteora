@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  each post in posts
+    .well
+      a(href='#{post.link}')
+        h1 #{post.title}
+      != post.excerpt()

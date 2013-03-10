@@ -1,0 +1,12 @@
+html
+  head
+    title
+      = site.title
+    link(href='/components/bootstrap/docs/assets/css/bootstrap.css', rel= 'stylesheet')
+    script(src='/components/bootstrap/docs/assets/js/bootstrap.min.js')
+  body
+    .hero-unit
+      h1
+        = site.title
+    .container
+      block content

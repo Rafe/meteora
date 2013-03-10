@@ -1,0 +1,7 @@
+--compilers coffee:coffee-script
+--require should
+--colors
+--reporter spec
+--growl
+--globals hasCert
+--timeout 5000
