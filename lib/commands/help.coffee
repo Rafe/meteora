@@ -6,7 +6,7 @@ module.exports = ->
 
     --commands
       generate [g]
-        Generate site from posts and layouts, default path to ./site
+        Generate site from posts and layouts, default path to ./
       server [s]
         Start a static server for site
     --options

@@ -10,7 +10,7 @@ process.title = 'meteora'
 
 
 defaultOpts =
-  path: 'site'
+  path: './'
 
 opts =
   path: [String]
