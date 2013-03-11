@@ -3,3 +3,4 @@ module.exports =
   'server': require('./server')
   'help': require('./help')
   'post': require('./post')
+  'deploy': require('./deploy')

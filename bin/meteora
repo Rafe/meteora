@@ -30,5 +30,7 @@ else if(process.argv[2] == 'generate' or process.argv[2] == 'g')
   meteora.commands['generate'](options)
 else if(process.argv[2] == 'post' or process.argv[2] == 'p')
   meteora.commands['post'](options)
+else if(process.argv[2] == 'deploy' or process.argv[2] == 'd')
+  meteora.commands['deploy'](options)
 else
   meteora.commands['help']()
