@@ -4,6 +4,8 @@
 
 ## Target
 
+Static blog engine, with pluggable github-based themes and plugins
+
 ## Features
 
 + components compatable
@@ -18,6 +20,26 @@
 + categories
 + tags
 + pagination
+
+##Install
+
+coffeescript and component required:
+
+    npm install -g coffee-script
+    npm install -g component
+
+install
+
+    npm install -g git://github.com/Rafe/meteora.git
+
+##Folder structure
+
+    _posts/
+      2012-12-31-test-post.md
+    _layouts/
+      index.jade
+    assets/
+    config.coffee
 
 ##Commands
 
@@ -36,10 +58,3 @@ Generate new post
     meteora post -t '[new title]'
     meteora p
 
-##Example structure
-
-    _posts/
-      2012-12-31-test-post.md
-    _layouts/
-      index.jade
-    config.coffee
