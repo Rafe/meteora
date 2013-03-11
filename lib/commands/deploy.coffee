@@ -10,5 +10,6 @@ module.exports = (options)->
     'bucket': config.s3.bucket
     'gitRoot': process.cwd()
     'dir': path.join process.cwd(), options.path
+    'ignore': ['_posts', '_layouts', 'config.coffee', 'component.json', 'components' ]
     'complete': ->
       console.log 'sync complete'
