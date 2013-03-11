@@ -11642,7 +11642,7 @@ require.register("btknorr-bootstrap/index.js", function(exports, require, module
 
 module.exports = require('jquery');
 });
-require.register("app/_assets/js/app.js", function(exports, require, module){
+require.register("app/assets/js/app.js", function(exports, require, module){
 console.log('test')
 
 });

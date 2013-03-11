@@ -1,10 +1,17 @@
-html
+doctype 5
+html(lang='en')
   head
-    title
-      = site.title
+    meta(charset='utf-8')
+    title= site.title
     link(href='/build/build.css', rel= 'stylesheet')
+    link(rel='icon', type='image/png', href='/assets/images/favicon.png')
     script(src='/build/build.js')
+
+    include partials/opengraph
   body
     include partials/header
+
     .container
-      block content
+      .content
+        block content
+    include partials/footer

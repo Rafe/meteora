@@ -6980,3 +6980,49 @@ a.badge:hover {
     overflow: visible !important;
   }
 }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.header h1 a{
+  color: black;
+  font-size: 56px;
+  font-weight: normal;
+}
+
+.header {
+  border-top: 3px solid black;
+  padding: 70px 0;
+  min-height: 88px;
+}
+
+.fb-like-box {
+  text-align: center;
+}
+
+.article {
+  margin: 0 15px 70px;
+}
+
+.content {
+  margin: 50px 0 0;
+}
+
+.hero {
+  min-height: 320px;
+}
+
+.hero .content {
+  margin: 120px 0 0;
+  color: white;
+}
+
+.hero .content a {
+  color: white;
+}
+
+.content {
+  font-size: 30px;
+  line-height: 35px;
+}

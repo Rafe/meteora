@@ -3,7 +3,7 @@
   "dependencies": {
     "btknorr/bootstrap": "*"
   },
-  "scripts": [ "_assets/js/app.js" ],
-  "styles": [ "_assets/css/app.css" ],
+  "scripts": [ "assets/js/app.js" ],
+  "styles": [ "assets/css/app.css" ],
   "main": "assets/js/app.js"
 }
