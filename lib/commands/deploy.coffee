@@ -5,8 +5,8 @@ module.exports = (options)->
   config = require path.join(process.cwd(), options.path, 'config')
 
   sync
-    'S3_KEY': config.s3.key
-    'S3_SECRET': config.s3.secret
+    'key': config.s3.key
+    'secret': config.s3.secret
     'bucket': config.s3.bucket
     'gitRoot': process.cwd()
     'dir': path.join process.cwd(), options.path
