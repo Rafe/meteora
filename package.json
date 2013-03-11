@@ -27,7 +27,7 @@
     "nopt": "~2.1.1",
     "component": "~0.13.0",
     "slugs": "~0.1.2",
-    "s3sync": "0.0.3"
+    "s3sync": "git://github.com/Rafe/s3sync.git"
   },
   "devDependencies": {
     "mocha": "~1.8.1",

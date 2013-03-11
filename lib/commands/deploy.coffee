@@ -2,13 +2,13 @@ sync = require('s3sync')
 path = require('path')
 
 module.exports = (options)->
-  config = require(path.join(options.path, 'config'))
+  config = require path.join(process.cwd(), options.path, 'config')
 
   sync
-    'amazonKey': config.s3.key
-    'amazonSecret': config.s3.secret
+    'S3_KEY': config.s3.key
+    'S3_SECRET': config.s3.secret
     'bucket': config.s3.bucket
-    'gitroot': process.cwd()
-    'dir': options.path
+    'gitRoot': process.cwd()
+    'dir': path.join process.cwd(), options.path
     'complete': ->
       console.log 'sync complete'
