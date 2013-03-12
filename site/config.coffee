@@ -6,7 +6,7 @@ module.exports =
   s3:
     key: process.env.S3_KEY
     secret: process.env.S3_SECRET
-    bucket: 'cookhub-blog'
+    bucket: 'blog.cookhub.me'
   tracker_id: process.env.TRACKER_ID
   fb:
     key: process.env.FB_KEY
