@@ -51,12 +51,14 @@ module.exports = class Site
     , callback
 
   renderIndex: (callback)->
-    page = @layouts['index'](posts: @posts, site: @config)
-    fs.writeFile @path + '/index.html', page, 'utf8', callback
+    page = @layouts['index']?(posts: @posts, site: @config)
+    if page?
+      fs.writeFile @path + '/index.html', page, 'utf8', callback
 
   renderRss: (callback)->
-    rss = @layouts['rss'](posts: @posts, site: @config)
-    fs.writeFile @path + '/atom.xml', rss, 'utf8', callback
+    rss = @layouts['rss']?(posts: @posts, site: @config)
+    if rss?
+      fs.writeFile @path + '/atom.xml', rss, 'utf8', callback
 
   loadComponents: (callback)->
     originPath = process.cwd()
