@@ -35,7 +35,8 @@ module.exports = class Post
     result = TITLE_REGEX.exec(title)
 
     @date = new Date("#{result[1]}/#{result[2]}/#{result[3]}")
-    @datetime = moment(@date).format("MMM Do YY")
+    @xmldate = moment(@date).format()
+    @datetime = moment(@date).format("MMM Do, YY")
     @slug = result[4]
     @dir = moment(@date).format("/YYYY/MM/DD")
     @link = @dir + "/#{@slug}.html"

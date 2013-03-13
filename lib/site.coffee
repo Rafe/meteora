@@ -5,6 +5,7 @@ mkpath = require('mkpath')
 async = require('async')
 bower = require('bower')
 path = require('path')
+moment = require('moment')
 
 bind = (proc)->
   proc.stdout.on 'data', (data) -> print data
@@ -26,6 +27,7 @@ module.exports = class Site
 
   loadConfig: ->
     @config = require(path.join(@path, 'config'))
+    @config.updated = moment(new Date()).format()
 
   loadPosts: (callback)->
     Post.path = @path + '/_posts'
@@ -51,6 +53,10 @@ module.exports = class Site
   renderIndex: (callback)->
     page = @layouts['index'](posts: @posts, site: @config)
     fs.writeFile @path + '/index.html', page, 'utf8', callback
+
+  renderRss: (callback)->
+    rss = @layouts['rss'](posts: @posts, site: @config)
+    fs.writeFile @path + '/atom.xml', rss, 'utf8', callback
 
   loadComponents: (callback)->
     originPath = process.cwd()

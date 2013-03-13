@@ -40,6 +40,15 @@ body {
 }
 
 .content {
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 35px;
+}
+
+li {
+  line-height: 33px;
+}
+
+blockquote p {
+  font-size: 25px;
   line-height: 35px;
 }

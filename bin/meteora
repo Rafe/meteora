@@ -19,7 +19,6 @@ opts =
 digestOpts =
   'p': ['--path']
   'v': ['--version']
-  't': ['--title']
 
 options = _.extend(defaultOpts, nopt(opts, digestOpts))
 

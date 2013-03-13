@@ -2,6 +2,8 @@ module.exports =
   title: 'COOK/HACK'
   subtitle: 'cookhub blog'
   description: 'Cookhub blog, a place for how cookhub built and new dishes from hubbers'
+  author: 'Jimmy Chao'
+  email: 'daizenga@gmail.com'
   url: 'http://blog.cookhub.me'
   s3:
     key: process.env.S3_KEY
