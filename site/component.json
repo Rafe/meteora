@@ -1,9 +1,0 @@
-{
-  "name": "app",
-  "dependencies": {
-    "btknorr/bootstrap": "*"
-  },
-  "scripts": [ "assets/js/app.js" ],
-  "styles": [ "assets/css/app.css" ],
-  "main": "assets/js/app.js"
-}
