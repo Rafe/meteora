@@ -1,34 +1,34 @@
+var express = require('express')
+var app = express();
 var React = require('react')
-var Article = React.createFactory(require('./components/article'))
-var DOM = React.DOM, body = DOM.body, div = DOM.div, script = DOM.script
+var browserify = require('browserify')
+var stringify = require('stringify')
 
+var articles = require('./resources/loader').articles
 
-var App = React.createClass({
-  getInitialState: function(){
-    return { resources: [
-      'this is article 1',
-      'this is article 2',
-      'this is article 3',
-      'this is article 4'
-    ]}
-  },
-  render: function() {
-    return body(null,
-      div({id: 'content'},
-        div(null, this.state.resources.map(function(resource) {
-          return Article.call(this, { content: resource })
-        }.bind(this)))
-      ),
-      script({src: 'https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js'}),
-      script({src: './bundle.js'})
-    )
-  }
+app.set('view engine', 'jade')
+
+var App = React.createFactory(require('./components/app'))
+
+app.get('/', function(req, res) {
+  res.render('index', {
+    content: React.renderToString(App({ articles: articles }))
+  })
 })
 
-var html = React.renderToString(React.createElement(App))
+app.get('/bundle.js', function(req, res) {
+  res.setHeader('Content-Type', 'text/javascript')
 
-var fs = require('fs')
+  browserify()
+    .transform(stringify(['.md', '.markdown']))
+    .add('./client.js')
+    .bundle()
+    .pipe(res)
+})
 
-fs.writeFile('./test.html', html, function(err) {
-  console.log('file is saved!')
-});
+var server = app.listen(3000, function() {
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Meteora is running at http://%s:%s', host, port)
+})
