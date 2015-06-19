@@ -1,37 +1,45 @@
-#!/usr/bin/env coffee
+#!/usr/bin/env node
 
-path = require('path')
-nopt = require('nopt')
-_ = require('underscore')
+var path = require('path')
+var nopt = require('nopt')
+var _ = require('underscore')
 
-meteora = require('../lib')
+var process.title = 'meteora'
 
-process.title = 'meteora'
+var defaultOpts = { path: './' }
 
-defaultOpts =
-  path: './'
-
-opts =
-  path: [String]
-  version: Boolean
+var opts = {
+  path: [String],
+  version: Boolean,
   title: [String]
+}
 
-digestOpts =
-  'p': ['--path']
+var digestOpts = {
+  'p': ['--path'],
   'v': ['--version']
+}
 
-options = _.extend(defaultOpts, nopt(opts, digestOpts))
+var options = _.extend(defaultOpts, nopt(opts, digestOpts))
 
-command = options.argv.remain.shift() || ''
+var command = options.argv.remain.shift() || ''
 
-switch command
-  when 'server', 's'
-    meteora.commands['server'](options)
-  when 'generate', 'g'
-    meteora.commands['generate'](options)
-  when 'post', 'p'
-    meteora.commands['post'](options)
-  when 'deploy', 'd'
-    meteora.commands['deploy'](options)
-  else
-    meteora.commands['help']()
+switch(command) {
+  case 'server':
+  case 's':
+    # meteora.commands['server'](options)
+    break;
+  case 'generate':
+    case 'g':
+    # meteora.commands['generate'](options)
+    break;
+  case 'post':
+  case 'p':
+    # meteora.commands['post'](options)
+    break
+  case 'deploy'
+  case 'd'
+    # meteora.commands['deploy'](options)
+    break
+  default:
+    # meteora.commands['help']()
+}
