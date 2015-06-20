@@ -1,13 +1,16 @@
 var marked = require('marked')
 var fs = require('fs')
+var path = require('path')
 
-var articles = [
-  './resources/articles/test.md',
-  './resources/articles/test2.md',
-  './resources/articles/test3.md',
-]
-
-exports.articles = articles.map(function(path) {
-  var article = fs.readFileSync(path)
-  return marked(article.toString())
-})
+exports.loadResources = function loadResources(name, callback) {
+  dirPath = path.join('./resources/', name)
+  files = []
+  fs.readdirSync(dirPath).forEach(function(filename) {
+    var filePath = path.join(dirPath, filename)
+    var stat = fs.statSync(filePath)
+    if (stat.isFile()) {
+      files.push(fs.readSync(filePath))
+    }
+  })
+  return files
+}

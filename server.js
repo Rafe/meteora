@@ -4,7 +4,7 @@ var React = require('react')
 var browserify = require('browserify')
 var stringify = require('stringify')
 
-var articles = require('./resources/loader').articles
+var articles = require('./resources/loader').loadResources('articles')
 
 app.set('view engine', 'jade')
 
