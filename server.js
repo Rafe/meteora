@@ -4,15 +4,17 @@ var React = require('react')
 var browserify = require('browserify')
 var stringify = require('stringify')
 
-var articles = require('./resources/loader').loadResources('articles')
+var resources = require('./resources/loader')
 
 app.set('view engine', 'jade')
 
 var App = React.createFactory(require('./components/app'))
 
 app.get('/', function(req, res) {
-  res.render('index', {
-    content: React.renderToString(App({ articles: articles }))
+  resources.load('articles', function(articles) {
+    res.render('index', {
+      content: React.renderToString(App({ articles: articles }))
+    })
   })
 })
 
