@@ -18,6 +18,14 @@ app.get('/', function(req, res) {
   })
 })
 
+app.get('/articles/:id', function(req, res) {
+  resources.find('articles', req.params.id, function(article) {
+    res.render('show', {
+      content: React.renderToString(App({ article: article }))
+    })
+  })
+})
+
 app.get('/bundle.js', function(req, res) {
   res.setHeader('Content-Type', 'text/javascript')
 
