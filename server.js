@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
 })
 
 app.get('/articles/:id', function(req, res) {
-  resources.find('articles', req.params.id, function(article) {
+  resources.load('articles', function(articles) {
     res.render('show', {
-      content: React.renderToString(App({ article: article }))
+      content: React.renderToString(App({ article: articles[params.id] }))
     })
   })
 })
