@@ -11,6 +11,7 @@ module.exports = React.createClass({
 
   componentWillMount: function() {
     // load router...
+    // // last hack for continue streaks...
   },
 
   render: function() {
