@@ -9,6 +9,10 @@ module.exports = React.createClass({
     }
   },
 
+  componentWillMount: function() {
+    // load router...
+  },
+
   render: function() {
     var articles = this.props.articles.map(function(article) {
       return Article({ title: 'Article', content: article })
