@@ -11,19 +11,7 @@ app.set('view engine', 'jade')
 var App = React.createFactory(require('./components/app'))
 
 app.get('/', function(req, res) {
-  resources.load('articles', function(articles) {
-    res.render('index', {
-      content: React.renderToString(App({ articles: articles }))
-    })
-  })
-})
-
-app.get('/articles/:id', function(req, res) {
-  resources.load('articles', function(articles) {
-    res.render('show', {
-      content: React.renderToString(App({ article: articles[params.id] }))
-    })
-  })
+  res.render('index')
 })
 
 app.get('/bundle.js', function(req, res) {
